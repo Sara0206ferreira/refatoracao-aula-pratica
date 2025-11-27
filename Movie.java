@@ -23,7 +23,7 @@ public class Movie {
   public String getTitle (){
       return _title;
   }
-  public double getCharge(int daysRented){ // <--- Método movido
+  public double getCharge(int daysRented){ 
       double result = 0;
       switch (getPriceCode()) {
          case REGULAR:
@@ -41,5 +41,11 @@ public class Movie {
              break;
       }
       return result;
+   }
+   public int getFrequentRenterPoints(int daysRented){ 
+      int frequentRenterPoints = 1;
+      if ((getPriceCode() == Movie.NEW_RELEASE) &&
+          daysRented > 1) frequentRenterPoints ++;
+      return frequentRenterPoints;
    }
 }
